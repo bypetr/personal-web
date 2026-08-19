@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectItem from '@/components/ProjectItem.astro';
+import ThemeToggle from '@/components/ThemeToggle.tsx';
+import { LINKS, SITE } from '@/consts';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout>
+  <header class="flex items-start justify-between gap-4">
+    <img
+      src="/avatar.svg"
+      alt=""
+      width="112"
+      height="112"
+      class="size-28 rounded-2xl border border-line object-cover"
+    />
+    <ThemeToggle client:load />
+  </header>
+
+  <h1 class="mt-8 text-4xl font-bold tracking-tight">Hey, I&apos;m {SITE.name}</h1>
+
+  <div class="mt-6 space-y-4 text-lg leading-relaxed text-ink-muted">
+    <p>{/* TODO: what you build */}</p>
+    <p>{/* TODO: second paragraph, optional */}</p>
+  </div>
+
+  {
+    LINKS.length > 0 && (
+      <nav class="mt-8 flex flex-wrap gap-5 text-ink-muted">
+        {LINKS.map((link) => (
+          <a
+            href={link.href}
+            rel="noopener"
+            class="underline underline-offset-4 transition-colors hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    )
+  }
+
+  <section class="mt-16">
+    <h2 class="text-xs font-medium tracking-widest text-ink-muted uppercase">
+      Things I&apos;ve built
+    </h2>
+
+    {
+      projects.length > 0 ? (
+        <ul class="mt-2">
+          {projects.map((project) => (
+            <ProjectItem project={project} />
+          ))}
+        </ul>
+      ) : (
+        <p class="mt-4 text-ink-muted">
+          Add a markdown file to <code>src/content/projects/</code>.
+        </p>
+      )
+    }
+  </section>
+</BaseLayout>
