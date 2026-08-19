@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { title, description, icon, category, status, url } =
+  Astro.props.project.data;
+
+const statusStyles = {
+  live: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+  building: 'bg-amber-500/10 text-amber-600 dark:text-amber-500',
+} as const;
+---
+
+<li class="flex gap-4 border-b border-line py-5 last:border-b-0">
+  <span
+    class="grid size-11 shrink-0 place-items-center rounded-xl border border-line bg-card text-lg"
+    aria-hidden="true"
+  >
+    {icon}
+  </span>
+
+  <div class="min-w-0">
+    <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+      <h3 class="font-semibold">
+        {
+          url ? (
+            <a href={url} rel="noopener" class="hover:underline">
+              {title}
+            </a>
+          ) : (
+            title
+          )
+        }
+      </h3>
+      {
+        status && (
+          <span
+            class:list={[
+              'rounded-full px-2 py-0.5 text-xs font-medium',
+              statusStyles[status],
+            ]}
+          >
+            {status === 'live' ? 'Live' : 'Building'}
+          </span>
+        )
+      }
+      <span class="text-sm text-ink-muted">{category}</span>
+    </div>
+
+    <p class="mt-1 text-ink-muted">{description}</p>
+  </div>
+</li>

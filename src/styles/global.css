@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --color-bg: oklch(97.5% 0 0);
+  --color-card: oklch(100% 0 0);
+  --color-ink: oklch(21% 0 0);
+  --color-ink-muted: oklch(55% 0 0);
+  --color-line: oklch(92% 0 0);
+}
+
+.dark {
+  --color-bg: oklch(18% 0 0);
+  --color-card: oklch(23% 0 0);
+  --color-ink: oklch(96% 0 0);
+  --color-ink-muted: oklch(68% 0 0);
+  --color-line: oklch(29% 0 0);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink-muted);
+    outline-offset: 2px;
+  }
+}
