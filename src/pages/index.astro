@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import ProjectItem from '@/components/ProjectItem.astro';
-import ThemeToggle from '@/components/ThemeToggle.tsx';
+import BaseLayout from '@/layouts/base-layout.astro';
+import ProjectItem from '@/components/project-item.astro';
+import ThemeToggle from '@/components/theme-toggle.tsx';
 import { LINKS, SITE } from '@/consts';
 
 const projects = (await getCollection('projects')).sort(

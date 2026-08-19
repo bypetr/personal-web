@@ -27,10 +27,10 @@ public/
 └─ robots.txt
 src/
 ├─ components/
-│  ├─ ProjectItem.astro    # one row in the list
-│  └─ ThemeToggle.tsx      # the only hydrated island (client:load)
+│  ├─ project-item.astro   # one row in the list
+│  └─ theme-toggle.tsx     # the only hydrated island (client:load)
 ├─ content/projects/       # empty — one markdown file per project
-├─ layouts/BaseLayout.astro
+├─ layouts/base-layout.astro
 ├─ pages/
 │  ├─ index.astro          # the whole page
 │  └─ 404.astro
