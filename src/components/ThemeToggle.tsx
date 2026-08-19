@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
-/**
- * The only interactive island. The initial theme is applied by the inline
- * script in BaseLayout, so this component only mirrors and updates it.
- */
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);

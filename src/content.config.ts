@@ -7,13 +7,10 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    /** Emoji shown in the tile. */
     icon: z.string(),
-    /** Free text, e.g. "Web app", "Extension". */
     category: z.string(),
     status: z.enum(['live', 'building']).optional(),
     url: z.url().optional(),
-    /** Lower numbers first. */
     order: z.number().default(0),
   }),
 });
