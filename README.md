@@ -39,17 +39,6 @@ src/
 └─ content.config.ts       # project frontmatter schema (Zod)
 ```
 
-## Filling it in
-
-1. `src/consts.ts` — `SITE` fields and the `LINKS` array (the links row is
-   hidden while the array is empty).
-2. `src/pages/index.astro` — the `{/* TODO */}` intro paragraphs.
-3. `astro.config.mjs` — `SITE_URL` for canonical and `og:url`.
-4. `src/assets/avatar.png` — swap for your own image (update the `import` in
-   `index.astro` if the extension changes). Astro resizes it and emits webp,
-   so a large source file is fine.
-5. `src/styles/global.css` — colour tokens under `@theme` (light) and `.dark`.
-
 ## Adding a project
 
 Each markdown file in `src/content/projects/` becomes one row, sorted by
