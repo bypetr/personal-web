@@ -1,7 +1,8 @@
 export const SITE = {
   name: 'Petr',
-  title: 'TODO',
-  description: 'TODO',
+  title: 'Petr — learning to actually ship',
+  description:
+    'Experienced developer. Building what I need, sharing what works.',
   locale: 'en',
 } as const;
 
