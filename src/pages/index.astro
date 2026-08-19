@@ -26,11 +26,19 @@ const projects = (await getCollection('projects')).sort(
     <ThemeToggle client:load />
   </header>
 
-  <h1 class="mt-8 text-4xl font-bold tracking-tight">Hey, I&apos;m {SITE.name}</h1>
+  <h1 class="mt-8 text-4xl font-bold tracking-tight">
+    Hey, I&apos;m {SITE.name} <span aria-hidden="true">👋</span>
+  </h1>
 
   <div class="mt-6 space-y-4 text-lg leading-relaxed text-ink-muted">
-    <p>Experienced developer, learning to actually ship.</p>
-    <p>I build what I need and share what works.</p>
+    <p>
+      Experienced developer, learning to actually ship.{' '}
+      <span aria-hidden="true">🚢</span>
+    </p>
+    <p>
+      I build what I need and share what works.{' '}
+      <span aria-hidden="true">🥋</span>
+    </p>
   </div>
 
   {
