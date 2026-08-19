@@ -22,10 +22,10 @@ npm run dev      # http://localhost:4321
 
 ```
 public/
-├─ avatar.svg              # placeholder — replace with your photo
 ├─ favicon.svg
 └─ robots.txt
 src/
+├─ assets/avatar.png       # your photo (optimized at build time)
 ├─ components/
 │  ├─ project-item.astro   # one row in the list
 │  └─ theme-toggle.tsx     # the only hydrated island (client:load)
@@ -38,16 +38,6 @@ src/
 ├─ consts.ts               # name, meta, links
 └─ content.config.ts       # project frontmatter schema (Zod)
 ```
-
-## Filling it in
-
-1. `src/consts.ts` — `SITE` fields and the `LINKS` array (the links row is
-   hidden while the array is empty).
-2. `src/pages/index.astro` — the `{/* TODO */}` intro paragraphs.
-3. `astro.config.mjs` — `SITE_URL` for canonical and `og:url`.
-4. `public/avatar.svg` — swap for your own image (update the `src` in
-   `index.astro` if the extension changes).
-5. `src/styles/global.css` — colour tokens under `@theme` (light) and `.dark`.
 
 ## Adding a project
 
