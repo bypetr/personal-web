@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
-// TODO: your production domain (used for canonical + og:url)
-const SITE_URL = 'https://example.com';
+const SITE_URL = 'https://bypetr.dev';
 
 // https://astro.build/config
 export default defineConfig({
